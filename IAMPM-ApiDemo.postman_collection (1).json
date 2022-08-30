@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "6666fc2f-875f-4121-888c-28f150001cea",
+		"name": "IAMPM-ApiDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "e22637e3-6a67-4dc1-8b69-5fd394289b16",
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58130f03-8d2e-4393-9b35-6d1b7b01b7ba",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.clearGlobalVariable(\"token\");",
+							"postman.setGlobalVariable(\"token\", data.token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin@admin.com\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "5d019deb-2798-484c-bc8c-39613d7d31b4",
+			"name": "Get all heroes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7eb5c3fc-d244-4051-be57-bfc94fe6c26b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin1@admin.com\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/heroes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heroes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "01d6e03f-dca3-49b5-bcdf-5568f4eea9c3",
+			"name": "Create hero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a1fd523-66f2-489e-9446-70bdfe18e37a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"spiderman@test.com\",\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Parker\",\n\t\"nickName\": \"Spider-Man\",\n\t\"city\": \"New York\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/heroes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heroes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "3d74bea7-032c-48d9-9ad4-481c72af8a52",
+			"name": "Get hero by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21b4a6f8-8fbd-43cf-8dc8-1774cb3f5e9b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin1@admin.com\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/heroes/5b5afca2446c012b74adeee0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heroes",
+						"5b5afca2446c012b74adeee0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "35f8dbc9-be71-4cd8-b987-003b8c574b4e",
+			"name": "Update hero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a1fd523-66f2-489e-9446-70bdfe18e37a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"spiderman@test.com\",\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Parker\",\n\t\"nickName\": \"Spider-Man\",\n\t\"city\": \"New York\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/heroes/5b5b074d4e9e91533c1ee6e9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heroes",
+						"5b5b074d4e9e91533c1ee6e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "4d1af667-1fbc-4b4b-8c29-475e51067970",
+			"name": "Delete hero",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a1fd523-66f2-489e-9446-70bdfe18e37a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/heroes/5b5b074d4e9e91533c1ee6e9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heroes",
+						"5b5b074d4e9e91533c1ee6e9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
